@@ -1,0 +1,7 @@
+cache
+/0*-*/
+*.box
+vagrant-home
+vagrant-dotfile
+temp
+products

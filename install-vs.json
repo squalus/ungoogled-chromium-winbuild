@@ -1,0 +1,46 @@
+{
+  "builders": [
+    {
+      "communicator": "winrm",
+      "winrm_username": "vagrant",
+      "winrm_password": "vagrant",
+      "type": "virtualbox-ovf",
+      "source_path": "{{user `source_path`}}",
+      "headless": "{{user `headless`}}",
+      "boot_wait": "30s",
+      "format": "ovf",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "6h",
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+      "shutdown_timeout": "600m",
+      "floppy_files": [
+      ],
+      "output_directory": "{{user `output_directory`}}",
+      "guest_additions_mode": "disable",
+      "vm_name": "{{user `vm_name`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "powershell",
+      "scripts": [
+          "install-python2.ps1",
+          "install-python3.ps1",
+          "install-visual-studio.ps1",
+          "install-winsdk.ps1",
+          "packer-windows/scripts/compact-basic.bat"
+      ]
+    }
+  ],
+  "post-processors": [
+      {
+        "type": "vagrant",
+        "output": "{{user `box_output`}}",
+        "compression_level": 0
+      }
+  ],
+  "variables": {
+      "headless": "true"
+  }
+}
