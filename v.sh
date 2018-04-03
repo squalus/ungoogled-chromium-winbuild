@@ -9,11 +9,6 @@ if [[ $1 = $PREFIX* ]]; then
     echo "VAGRANTFILE=$VAGRANTFILE"
     shift
 fi
-#if [[ "${VAGRANTFILE}" == "" ]]; then
-  #printf "Usage: "${0}" <vagrantfile> <vagrant args>\n"
-  #exit 1
-#fi
-#shift
 env VAGRANT_CHECKPOINT_DISABLE=1 \
     VAGRANT_HOME="$DIR/vagrant-home" \
     VAGRANT_DOTFILE_PATH="$DIR/vagrant-dotfile" \
