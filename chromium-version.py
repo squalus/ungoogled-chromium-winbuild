@@ -16,6 +16,6 @@ version = config['version']
 chromium_version = version['chromium_version']
 release_revision = version['release_revision']
 
-full_version = '_'.join((chromium_version, release_revision))
+full_version = '-'.join((chromium_version, release_revision))
 
 print(full_version)
