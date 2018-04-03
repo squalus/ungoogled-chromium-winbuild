@@ -6,6 +6,6 @@ if [ "$#" != 1 ]; then
 fi
 
 cd "$1"
-REF=$(git show-ref HEAD -s)
+REF=$(git rev-parse HEAD)
 DIRTY=$(git diff-index --quiet HEAD -- || echo -n " *dirty*")
 echo "$REF$DIRTY"
