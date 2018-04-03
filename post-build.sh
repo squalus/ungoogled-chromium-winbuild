@@ -14,12 +14,36 @@ mv "$TEMP_DIR"/"$PRODUCT_NAME" "$PRODUCTS_DIR"
 mv "$TEMP_DIR"/build.txt "$PRODUCTS_DIR"
 rm -rf "$TEMP_DIR"
 cd "$PRODUCTS_DIR"
+PRODUCT_FILE="$PRODUCTS_DIR/$PRODUCT_NAME"
 
 if [ -x "$STRIP_NONDETERM" ]; then
     echo "* Running strip-nondeterminism"
-    "$STRIP_NONDETERM" "$PRODUCTS_DIR"/"$PRODUCT_NAME"
+    "$STRIP_NONDETERM" "$PRODUCT_FILE"
 else
     echo "* Skipping strip-nondeterminism, binary not found"
 fi
+
+echo "* Hashing"
+
+MD5=$(md5sum "$PRODUCT_FILE" | cut -d ' ' -f 1)
+SHA1=$(sha1sum "$PRODUCT_FILE" | cut -d ' ' -f 1)
+SHA256=$(sha1sum "$PRODUCT_FILE" | cut -d ' ' -f 1)
+CHROMIUM_VERSION=$($DIR/chromium-version.py)
+PUB_TIME=$(python3 -c "import datetime; print(datetime.datetime.utcnow().isoformat())")
+WIN_COMMIT=$($DIR/git-status.sh "$DIR")
+
+INI_TEXT="\
+[_metadata]\n\
+publication_time = $PUB_TIME\n\
+github_author = squalus\n\
+note = Built at commit: https://github.com/squalus/ungoogled-chromium-winbuild/commit/$WIN_COMMIT\n\
+\n\
+[$PRODUCT_NAME]\n\
+url = \n\
+md5 = $MD5\n\
+sha1 = $SHA1\n\
+sha256 = $SHA256\n\
+"
+printf "$INI_TEXT" > "$PRODUCTS_DIR/$CHROMIUM_VERSION.ini"
 
 echo "* Done"
