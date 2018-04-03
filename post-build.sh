@@ -27,7 +27,7 @@ echo "* Hashing"
 
 MD5=$(md5sum "$PRODUCT_FILE" | cut -d ' ' -f 1)
 SHA1=$(sha1sum "$PRODUCT_FILE" | cut -d ' ' -f 1)
-SHA256=$(sha1sum "$PRODUCT_FILE" | cut -d ' ' -f 1)
+SHA256=$(sha256sum "$PRODUCT_FILE" | cut -d ' ' -f 1)
 CHROMIUM_VERSION=$($DIR/chromium-version.py)
 PUB_TIME=$(python3 -c "import datetime; print(datetime.datetime.utcnow().isoformat())")
 WIN_COMMIT=$($DIR/git-status.sh "$DIR")
