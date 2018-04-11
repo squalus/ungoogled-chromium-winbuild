@@ -15,7 +15,7 @@ ARCHIVE_FILE="$TEMP_DIR/ungoogled-chromium-repo.zip"
 rm -f "$ARCHIVE_FILE"
 
 cd $UGC_REPO_DIR
-UGC_REF=$(git show-ref HEAD -s)
+UGC_REF=$(git rev-parse HEAD)
 
 git archive --format=zip -o "$ARCHIVE_FILE" --prefix ungoogled-chromium/ $UGC_REF
 
