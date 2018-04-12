@@ -9,13 +9,8 @@
       "headless": "{{user `headless`}}",
       "boot_wait": "30s",
       "format": "ovf",
-      "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
-      "ssh_wait_timeout": "6h",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
-      "shutdown_timeout": "600m",
-      "floppy_files": [
-      ],
+      "shutdown_timeout": "120s",
       "output_directory": "{{user `output_directory`}}",
       "guest_additions_mode": "disable",
       "vm_name": "{{user `vm_name`}}"
