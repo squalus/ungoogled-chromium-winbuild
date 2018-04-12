@@ -8,8 +8,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 REVISION="$1"
 
 UGC_REPO_DIR="$DIR/ungoogled-chromium"
-TEMP_DIR="$DIR/temp"
-mkdir -p "$TEMP_DIR"
+TEMP_DIR="$DIR/shared"
 ARCHIVE_FILE="$TEMP_DIR/ungoogled-chromium-repo.zip"
 
 rm -f "$ARCHIVE_FILE"

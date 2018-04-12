@@ -7,12 +7,12 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PRODUCTS_DIR="$DIR"/products
 rm -rf "$PRODUCTS_DIR"
 mkdir -p "$PRODUCTS_DIR"
-TEMP_DIR="$DIR"/temp
+TEMP_DIR="$DIR"/shared
 PRODUCT_NAME=$(basename "$TEMP_DIR"/ungoogled-chromium_*.zip)
 echo "* Product: $PRODUCT_NAME"
 mv "$TEMP_DIR"/"$PRODUCT_NAME" "$PRODUCTS_DIR"
 mv "$TEMP_DIR"/build.txt "$PRODUCTS_DIR"
-rm -rf "$TEMP_DIR"
+rm -rf "$TEMP_DIR"/*
 cd "$PRODUCTS_DIR"
 PRODUCT_FILE="$PRODUCTS_DIR/$PRODUCT_NAME"
 

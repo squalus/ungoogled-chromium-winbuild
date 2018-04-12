@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.communicator = "winrm"
   config.vm.guest = "windows"
-  config.vm.synced_folder "temp", "C:\\Users\\vagrant\\shared", SharedFoldersEnableSymlinksCreate: false
+  config.vm.synced_folder "shared", "C:\\Users\\vagrant\\shared", SharedFoldersEnableSymlinksCreate: false
 
   config.vm.provision "build",
       type: "shell",
