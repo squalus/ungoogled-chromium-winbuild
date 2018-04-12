@@ -30,3 +30,7 @@ $oldPath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentC
 $newPath="$oldPath;C:\Python27"
 
 Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath
+
+$module="pypiwin32==223"
+Write-Host "Installing $module"
+Start-Process "C:\Python27\Scripts\pip.exe" -NoNewWindow -Wait -ArgumentList  "install","--disable-pip-version-check",$module
