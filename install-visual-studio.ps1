@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 $url = "https://aka.ms/vs/15/release/vs_community.exe"
 $downloadFolder = "$home\Downloads"
 $vsInstallerFile = "$downloadFolder\vs_community.exe"

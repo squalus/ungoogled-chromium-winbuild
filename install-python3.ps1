@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 $version = "3.6.4"
 $md5Hash = "67e1a9bb336a5eca0efcd481c9f262a4"
 
@@ -7,6 +8,8 @@ $zipInstallerFile = "$downloadFolder\$filename"
 $url = "https://www.python.org/ftp/python/$version/python-$version.exe"
 
 Write-Host "Downloading $url"
+$AllProtocols = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
+[System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols
 Invoke-WebRequest -Uri $url -OutFile $zipInstallerFile
 
 Write-Host "Checking hash"
