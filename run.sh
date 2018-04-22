@@ -5,6 +5,8 @@ export UGC_HEADLESS="${UGC_HEADLESS:=true}"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 V="$DIR/v.sh"
 
+rm -rf "$DIR/shared/*"
+
 if [ ! -f "$DIR"/01-win2016/01-win2016.ovf ]; then
     echo "* Creating Windows 2016 base image"
     date
