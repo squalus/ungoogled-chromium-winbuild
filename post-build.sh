@@ -39,7 +39,7 @@ github_author = squalus\n\
 note = Built at commit: https://github.com/squalus/ungoogled-chromium-winbuild/commit/$WIN_COMMIT\n\
 \n\
 [$PRODUCT_NAME]\n\
-url = \n\
+url = https://github.com/squalus/ungoogled-chromium-binaries/releases/download/$CHROMIUM_VERSION/$PRODUCT_NAME\n\
 md5 = $MD5\n\
 sha1 = $SHA1\n\
 sha256 = $SHA256\n\
