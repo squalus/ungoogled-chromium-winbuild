@@ -30,13 +30,13 @@ SHA1=$(sha1sum "$PRODUCT_FILE" | cut -d ' ' -f 1)
 SHA256=$(sha256sum "$PRODUCT_FILE" | cut -d ' ' -f 1)
 CHROMIUM_VERSION=$($DIR/chromium-version.py)
 PUB_TIME=$(python3 -c "import datetime; print(datetime.datetime.utcnow().isoformat())")
-WIN_COMMIT=$($DIR/git-status.sh "$DIR")
+UGC_COMMIT=$($DIR/git-status.sh "$DIR/ungoogled-chromium")
 
 INI_TEXT="\
 [_metadata]\n\
 publication_time = $PUB_TIME\n\
 github_author = squalus\n\
-note = Built at commit: https://github.com/squalus/ungoogled-chromium-winbuild/commit/$WIN_COMMIT\n\
+note = Built at commit: https://github.com/Eloston/ungoogled-chromium/commit/$UGC_COMMIT\n\
 \n\
 [$PRODUCT_NAME]\n\
 url = https://github.com/squalus/ungoogled-chromium-binaries/releases/download/$CHROMIUM_VERSION/$PRODUCT_NAME\n\
