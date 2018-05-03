@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
-$version = "2.7.14"
-$md5 = "370014d73c3059f610c27365def62058"
+$version = "2.7.15"
+$md5 = "0ffa44a86522f9a37b916b361eebc552"
 
 $downloadFolder = "$home\Downloads"
 $filename = "python-$version.amd64.msi"

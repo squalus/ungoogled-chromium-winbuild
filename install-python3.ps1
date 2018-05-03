@@ -1,11 +1,11 @@
 $ErrorActionPreference = "Stop"
-$version = "3.6.4"
-$md5Hash = "67e1a9bb336a5eca0efcd481c9f262a4"
+$version = "3.6.5"
+$md5Hash = "9e96c934f5d16399f860812b4ac7002b"
 
 $downloadFolder = "$home\Downloads"
-$filename = "python-$version.exe"
+$filename = "python-$version-amd64.exe"
 $zipInstallerFile = "$downloadFolder\$filename"
-$url = "https://www.python.org/ftp/python/$version/python-$version.exe"
+$url = "https://www.python.org/ftp/python/$version/$filename"
 
 Write-Host "Downloading $url"
 $AllProtocols = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
